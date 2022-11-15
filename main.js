@@ -25,6 +25,7 @@ const start = async () => {
   const signer = new ethers.Wallet(privateKey, provider);
 
   for (const wallet of wallets.split('\n')) {
+    if (!wallet.trim()) continue;
     let balance = await provider.getBalance(wallet.trim());
     console.log('Address:', wallet, 'Balance:', ethers.utils.commify(ethers.utils.formatEther(balance.toString())));
 
