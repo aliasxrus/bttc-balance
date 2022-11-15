@@ -19,8 +19,8 @@
   "homepage": "https://github.com/aliasxrus/bttc-balance#readme",
   "dependencies": {
     "bignumber.js": "^9.0.2",
-    "node-fetch": "^3.2.3",
-    "web3": "^1.7.1"
+    "ethers": "^5.7.2",
+    "node-fetch": "^3.2.3"
   },
   "type": "module"
 }
