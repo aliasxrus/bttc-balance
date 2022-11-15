@@ -15,7 +15,7 @@ const privateKey = '100000000000000000000000000000000000000000000000000000000000
 const amount = 10000;
 
 // 3. Переводить если баланс BTT меньше данной суммы (для отключения указать -1)
-const minBalance = 3000;
+const minBalance = -1;
 
 const start = async () => {
   const signer = new ethers.Wallet(privateKey, provider);
@@ -24,7 +24,7 @@ const start = async () => {
     let balance = await provider.getBalance(wallet.trim());
     console.log('Address:', wallet, 'Balance:', ethers.utils.commify(ethers.utils.formatEther(balance.toString())));
 
-    if (balance.gt(ethers.utils.parseUnits(String(minBalance)).toString())) continue;
+    if (minBalance === -1 || balance.gt(ethers.utils.parseUnits(String(minBalance)).toString())) continue;
     const {from, to} = await signer.sendTransaction({
       to: wallet.trim(),
       value: ethers.utils.parseEther(String(amount)),
