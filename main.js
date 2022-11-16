@@ -35,7 +35,7 @@ const start = async () => {
       value: ethers.utils.parseEther(String(amount)),
     });
 
-    console.log('Transfer:', amount, from, '->', to)
+    console.log('Transfer BTT:', amount, from, '->', to);
   }
 };
 
